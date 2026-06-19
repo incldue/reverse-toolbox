@@ -34,7 +34,7 @@
 - Node.js 20+
 - npm
 
-可以下载
+可以下载![release](https://github.com/incldue/reverse-toolbox/releases/tag/reverse-toolbox)进行安装，也可以通过以下的本地运行自行安装。
 
 ## 本地运行
 
