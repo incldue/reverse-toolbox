@@ -1,0 +1,545 @@
+{
+  "catalogVersion": 1,
+  "updatedAt": "2026-06-09",
+  "categories": [
+    {
+      "id": "disasm",
+      "name": "反汇编/反编译"
+    },
+    {
+      "id": "debug",
+      "name": "调试/动态分析"
+    },
+    {
+      "id": "binary",
+      "name": "二进制查看/结构"
+    },
+    {
+      "id": "packer",
+      "name": "壳/保护/脱壳"
+    },
+    {
+      "id": "managed",
+      "name": ".NET/Java/Android"
+    },
+    {
+      "id": "cli",
+      "name": "命令行工具"
+    },
+    {
+      "id": "custom",
+      "name": "自定义工具"
+    }
+  ],
+  "tools": [
+    {
+      "id": "ida64-93",
+      "name": "IDA Pro 9.3 x64",
+      "category": "disasm",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "ida64.exe",
+      "candidates": [
+        "%ProgramFiles%\\IDA Professional 9.3\\ida64.exe",
+        "%ProgramFiles%\\IDA Pro 9.3\\ida64.exe",
+        "%ProgramFiles%\\IDA 9.3\\ida64.exe",
+        "%ProgramFiles(x86)%\\IDA Pro 9.3\\ida64.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "主力交互式反汇编器，适合 PE/ELF/Mach-O、伪代码恢复、交叉引用和结构体分析。",
+      "tags": [
+        "IDA",
+        "Decompiler",
+        "PE",
+        "ELF"
+      ]
+    },
+    {
+      "id": "ida32-93",
+      "name": "IDA Pro 9.3 x86",
+      "category": "disasm",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "ida.exe",
+      "candidates": [
+        "%ProgramFiles%\\IDA Professional 9.3\\ida.exe",
+        "%ProgramFiles%\\IDA Pro 9.3\\ida.exe",
+        "%ProgramFiles%\\IDA 9.3\\ida.exe",
+        "%ProgramFiles(x86)%\\IDA Pro 9.3\\ida.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "用于 32 位样本或兼容性分析的 IDA 入口。",
+      "tags": [
+        "IDA",
+        "x86"
+      ]
+    },
+    {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "category": "disasm",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "ghidraRun.bat",
+      "candidates": [
+        "%ProgramFiles%\\Ghidra\\ghidraRun.bat",
+        "%USERPROFILE%\\Desktop\\ghidra\\ghidraRun.bat",
+        "%USERPROFILE%\\Downloads\\ghidra\\ghidraRun.bat"
+      ],
+      "acceptsTarget": false,
+      "args": [],
+      "description": "开源逆向平台，适合交叉验证 IDA 结论、查看数据流和函数签名恢复。",
+      "tags": [
+        "Decompiler",
+        "SRE"
+      ]
+    },
+    {
+      "id": "binary-ninja",
+      "name": "Binary Ninja",
+      "category": "disasm",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "binaryninja.exe",
+      "candidates": [
+        "%LOCALAPPDATA%\\Vector35\\BinaryNinja\\binaryninja.exe",
+        "%ProgramFiles%\\Vector35\\BinaryNinja\\binaryninja.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "以中间表示和脚本化分析见长，适合复杂控制流和自动化分析。",
+      "tags": [
+        "BN",
+        "IL"
+      ]
+    },
+    {
+      "id": "cutter",
+      "name": "Cutter",
+      "category": "disasm",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "cutter.exe",
+      "candidates": [
+        "%ProgramFiles%\\Cutter\\cutter.exe",
+        "%LOCALAPPDATA%\\Programs\\Cutter\\cutter.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "Rizin/radare2 图形前端，适合轻量交互式分析和脚本辅助。",
+      "tags": [
+        "Rizin",
+        "radare2"
+      ]
+    },
+    {
+      "id": "x64dbg",
+      "name": "x64dbg",
+      "category": "debug",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "x64dbg.exe",
+      "candidates": [
+        "%ProgramFiles%\\x64dbg\\release\\x64\\x64dbg.exe",
+        "%ProgramFiles%\\x64dbg\\x64dbg.exe",
+        "%USERPROFILE%\\Desktop\\x64dbg\\release\\x64\\x64dbg.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "Windows x64 用户态调试器，适合断点、内存补丁、调用栈和反调试验证。",
+      "tags": [
+        "Debugger",
+        "Windows",
+        "x64"
+      ]
+    },
+    {
+      "id": "x32dbg",
+      "name": "x32dbg",
+      "category": "debug",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "x32dbg.exe",
+      "candidates": [
+        "%ProgramFiles%\\x64dbg\\release\\x32\\x32dbg.exe",
+        "%ProgramFiles%\\x64dbg\\x32dbg.exe",
+        "%USERPROFILE%\\Desktop\\x64dbg\\release\\x32\\x32dbg.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "Windows x86 用户态调试器，适合 32 位 PE 的动态分析。",
+      "tags": [
+        "Debugger",
+        "Windows",
+        "x86"
+      ]
+    },
+    {
+      "id": "windbg",
+      "name": "WinDbg",
+      "category": "debug",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "windbg.exe",
+      "candidates": [
+        "%LOCALAPPDATA%\\Microsoft\\WindowsApps\\WinDbgX.exe",
+        "%ProgramFiles(x86)%\\Windows Kits\\10\\Debuggers\\x64\\windbg.exe",
+        "%ProgramFiles(x86)%\\Windows Kits\\10\\Debuggers\\x86\\windbg.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "系统级调试与崩溃转储分析工具，适合异常链、内核对象和符号调试。",
+      "tags": [
+        "Debugger",
+        "Dump"
+      ]
+    },
+    {
+      "id": "process-monitor",
+      "name": "Process Monitor",
+      "category": "debug",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "procmon.exe",
+      "candidates": [
+        "%ProgramFiles%\\Sysinternals\\Procmon.exe",
+        "%USERPROFILE%\\Desktop\\Sysinternals\\Procmon.exe"
+      ],
+      "acceptsTarget": false,
+      "args": [],
+      "description": "观察文件、注册表、进程和网络事件，适合定位样本运行时依赖。",
+      "tags": [
+        "Sysinternals",
+        "Runtime"
+      ]
+    },
+    {
+      "id": "010editor",
+      "name": "010 Editor",
+      "category": "binary",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "010editor.exe",
+      "candidates": [
+        "%ProgramFiles%\\010 Editor\\010Editor.exe",
+        "%ProgramFiles(x86)%\\010 Editor\\010Editor.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "十六进制编辑器和二进制模板解析器，适合文件格式、结构体和补丁验证。",
+      "tags": [
+        "Hex",
+        "Template"
+      ]
+    },
+    {
+      "id": "hxd",
+      "name": "HxD",
+      "category": "binary",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "HxD.exe",
+      "candidates": [
+        "%ProgramFiles%\\HxD\\HxD.exe",
+        "%ProgramFiles(x86)%\\HxD\\HxD.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "轻量十六进制编辑器，适合快速查看 magic、偏移、补丁和字符串。",
+      "tags": [
+        "Hex",
+        "Patch"
+      ]
+    },
+    {
+      "id": "detect-it-easy",
+      "name": "Detect It Easy",
+      "category": "binary",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "die.exe",
+      "candidates": [
+        "%ProgramFiles%\\Detect It Easy\\die.exe",
+        "%USERPROFILE%\\Desktop\\Detect It Easy\\die.exe",
+        "%USERPROFILE%\\Desktop\\DIE\\die.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "识别编译器、壳、保护器和文件格式，适合逆向前第一轮指纹判断。",
+      "tags": [
+        "Signature",
+        "Packer"
+      ]
+    },
+    {
+      "id": "pe-bear",
+      "name": "PE-bear",
+      "category": "binary",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "PE-bear.exe",
+      "candidates": [
+        "%ProgramFiles%\\PE-bear\\PE-bear.exe",
+        "%USERPROFILE%\\Desktop\\PE-bear\\PE-bear.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "PE 结构查看和编辑工具，适合节表、导入表、重定位和资源定位。",
+      "tags": [
+        "PE",
+        "Headers"
+      ]
+    },
+    {
+      "id": "cff-explorer",
+      "name": "CFF Explorer",
+      "category": "binary",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "CFF Explorer.exe",
+      "candidates": [
+        "%ProgramFiles(x86)%\\NTCore\\Explorer Suite\\CFF Explorer.exe",
+        "%ProgramFiles%\\NTCore\\Explorer Suite\\CFF Explorer.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "PE 结构编辑、导入重建和资源查看工具。",
+      "tags": [
+        "PE",
+        "Import"
+      ]
+    },
+    {
+      "id": "upx",
+      "name": "UPX",
+      "category": "packer",
+      "type": "cli",
+      "configuredPath": "",
+      "executable": "upx.exe",
+      "candidates": [
+        "%ProgramFiles%\\upx\\upx.exe",
+        "%USERPROFILE%\\Desktop\\upx\\upx.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [
+        "-d"
+      ],
+      "description": "常见可执行文件压缩壳工具。默认以解包参数启动控制台，可在设置中改参数。",
+      "tags": [
+        "Packer",
+        "Unpack",
+        "CLI"
+      ]
+    },
+    {
+      "id": "vmprotect",
+      "name": "VMProtect / VMP",
+      "category": "packer",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "VMProtect.exe",
+      "candidates": [
+        "%ProgramFiles%\\VMProtect Ultimate\\VMProtect.exe",
+        "%ProgramFiles%\\VMProtect\\VMProtect.exe",
+        "%ProgramFiles(x86)%\\VMProtect Ultimate\\VMProtect.exe",
+        "%ProgramFiles(x86)%\\VMProtect\\VMProtect.exe"
+      ],
+      "acceptsTarget": false,
+      "args": [],
+      "description": "用于认识虚拟化保护特征、配置测试样本和辅助 CTF 保护分析。",
+      "tags": [
+        "VMP",
+        "Virtualization"
+      ]
+    },
+    {
+      "id": "scylla",
+      "name": "Scylla",
+      "category": "packer",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "Scylla_x64.exe",
+      "candidates": [
+        "%USERPROFILE%\\Desktop\\Scylla\\Scylla_x64.exe",
+        "%ProgramFiles%\\Scylla\\Scylla_x64.exe"
+      ],
+      "acceptsTarget": false,
+      "args": [],
+      "description": "导入表重建工具，常用于脱壳后 dump 的 IAT 修复。",
+      "tags": [
+        "IAT",
+        "Dump"
+      ]
+    },
+    {
+      "id": "dnspyex",
+      "name": "dnSpyEx",
+      "category": "managed",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "dnSpy.exe",
+      "candidates": [
+        "%ProgramFiles%\\dnSpyEx\\dnSpy.exe",
+        "%USERPROFILE%\\Desktop\\dnSpyEx\\dnSpy.exe",
+        "%USERPROFILE%\\Desktop\\dnSpy\\dnSpy.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": ".NET 反编译、调试和 IL 修改工具，适合 C# CrackMe 和混淆定位。",
+      "tags": [
+        ".NET",
+        "IL",
+        "Decompiler"
+      ]
+    },
+    {
+      "id": "ilspy",
+      "name": "ILSpy",
+      "category": "managed",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "ILSpy.exe",
+      "candidates": [
+        "%LOCALAPPDATA%\\Programs\\ILSpy\\ILSpy.exe",
+        "%ProgramFiles%\\ILSpy\\ILSpy.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "轻量 .NET 反编译器，适合源码级阅读和交叉验证。",
+      "tags": [
+        ".NET",
+        "Decompiler"
+      ]
+    },
+    {
+      "id": "jadx-gui",
+      "name": "JADX GUI",
+      "category": "managed",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "jadx-gui.bat",
+      "candidates": [
+        "%ProgramFiles%\\jadx\\bin\\jadx-gui.bat",
+        "%USERPROFILE%\\Desktop\\jadx\\bin\\jadx-gui.bat"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "Android APK/DEX Java 层反编译工具，适合 Activity、native 调用和资源定位。",
+      "tags": [
+        "Android",
+        "DEX",
+        "Java"
+      ]
+    },
+    {
+      "id": "jeb",
+      "name": "JEB",
+      "category": "managed",
+      "type": "gui",
+      "configuredPath": "",
+      "executable": "jeb.exe",
+      "candidates": [
+        "%ProgramFiles%\\JEB\\jeb.exe",
+        "%USERPROFILE%\\Desktop\\JEB\\jeb.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [],
+      "description": "Android、Java 和原生样本分析平台，适合复杂 APK 和多语言交叉分析。",
+      "tags": [
+        "Android",
+        "Java",
+        "Native"
+      ]
+    },
+    {
+      "id": "apktool",
+      "name": "apktool",
+      "category": "managed",
+      "type": "cli",
+      "configuredPath": "",
+      "executable": "apktool.bat",
+      "candidates": [
+        "%ProgramFiles%\\apktool\\apktool.bat",
+        "%USERPROFILE%\\Desktop\\apktool\\apktool.bat"
+      ],
+      "acceptsTarget": true,
+      "args": [
+        "d",
+        "{file}"
+      ],
+      "description": "APK 资源和 smali 反编译工具，默认以 decode 命令打开控制台。",
+      "tags": [
+        "Android",
+        "smali",
+        "CLI"
+      ]
+    },
+    {
+      "id": "radare2",
+      "name": "radare2",
+      "category": "cli",
+      "type": "cli",
+      "configuredPath": "",
+      "executable": "r2.exe",
+      "candidates": [
+        "%ProgramFiles%\\radare2\\bin\\r2.exe",
+        "%LOCALAPPDATA%\\Programs\\radare2\\bin\\r2.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [
+        "{file}"
+      ],
+      "description": "命令行逆向框架，适合快速 strings、xref、patch 和脚本化处理。",
+      "tags": [
+        "CLI",
+        "Scripting"
+      ]
+    },
+    {
+      "id": "gdb",
+      "name": "GDB",
+      "category": "cli",
+      "type": "cli",
+      "configuredPath": "",
+      "executable": "gdb.exe",
+      "candidates": [
+        "%ProgramFiles%\\mingw64\\bin\\gdb.exe",
+        "%ProgramFiles%\\MSYS2\\mingw64\\bin\\gdb.exe"
+      ],
+      "acceptsTarget": true,
+      "args": [
+        "{file}"
+      ],
+      "description": "Linux/MinGW 调试器，适合 ELF、远程 gdbserver 和符号级调试。",
+      "tags": [
+        "Debugger",
+        "ELF",
+        "CLI"
+      ]
+    },
+    {
+      "id": "frida",
+      "name": "Frida CLI",
+      "category": "cli",
+      "type": "cli",
+      "configuredPath": "",
+      "executable": "frida.exe",
+      "candidates": [
+        "%APPDATA%\\Python\\Python312\\Scripts\\frida.exe",
+        "%LOCALAPPDATA%\\Programs\\Python\\Python312\\Scripts\\frida.exe"
+      ],
+      "acceptsTarget": false,
+      "args": [
+        "--help"
+      ],
+      "description": "动态插桩工具，适合 Android、iOS 和桌面程序的运行时观察。",
+      "tags": [
+        "Hook",
+        "Instrumentation",
+        "CLI"
+      ]
+    }
+  ]
+}

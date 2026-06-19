@@ -1,0 +1,77 @@
+{
+  "name": "ctf-reverse-toolbox",
+  "version": "0.1.0",
+  "description": "Windows desktop toolbox for CTF reverse engineering tools and knowledge notes.",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "smoke": "electron . --smoke-test",
+    "icon": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/make-icon.ps1",
+    "pack:win": "electron-builder --win --x64 --dir",
+    "zip:win": "npm run pack:win && powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/package-portable.ps1",
+    "dist:win": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/dist-win.ps1"
+  },
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "electron": "^42.3.3",
+    "electron-builder": "^26.15.3"
+  },
+  "dependencies": {
+    "mammoth": "^1.12.0"
+  },
+  "build": {
+    "appId": "local.reverse.toolbox",
+    "productName": "Reverse Toolbox",
+    "copyright": "Copyright © 2026",
+    "asar": false,
+    "directories": {
+      "buildResources": "build",
+      "output": "release"
+    },
+    "files": [
+      "src/**",
+      "data/tools.json",
+      "data/knowledge/*.md",
+      "data/knowledge/manifest.json",
+      "package.json",
+      "README.md",
+      "启动工具箱.cmd",
+      "!data/user-state.json",
+      "!data/knowledge/imported/**",
+      "!CONVERSATION_CONTEXT.md",
+      "!release/**",
+      "!dist/**",
+      "!out/**"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Reverse Toolbox"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "title": "CTF Reverse Knowledge Base",
+  "docs": [
+    {
+      "id": "roadmap",
+      "title": "逆向解题路线图",
+      "category": "入门流程",
+      "file": "00-roadmap.md",
+      "summary": "从拿到样本到复现 flag 的标准流程。",
+      "tags": ["workflow", "triage", "checklist"]
+    },
+    {
+      "id": "binary-formats",
+      "title": "二进制格式基础：PE / ELF",
+      "category": "基础知识",
+      "file": "01-binary-formats.md",
+      "summary": "节区、导入表、重定位、符号和运行时加载。",
+      "tags": ["PE", "ELF", "headers"]
+    },
+    {
+      "id": "assembly",
+      "title": "汇编与调用约定速查",
+      "category": "基础知识",
+      "file": "02-assembly.md",
+      "summary": "x86/x64 寄存器、栈帧、参数传递和常见指令。",
+      "tags": ["x86", "x64", "ABI"]
+    },
+    {
+      "id": "static-analysis",
+      "title": "IDA / Ghidra 静态分析工作流",
+      "category": "静态分析",
+      "file": "03-static-analysis.md",
+      "summary": "字符串、交叉引用、函数命名、结构体和伪代码验证。",
+      "tags": ["IDA", "Ghidra", "decompiler"]
+    },
+    {
+      "id": "debugging",
+      "title": "x64dbg / GDB 动态调试工作流",
+      "category": "动态分析",
+      "file": "04-debugging.md",
+      "summary": "断点策略、内存观察、异常处理和运行时验证。",
+      "tags": ["x64dbg", "GDB", "breakpoint"]
+    },
+    {
+      "id": "packers",
+      "title": "壳、UPX 与 VMP 分析要点",
+      "category": "壳与保护",
+      "file": "05-packers.md",
+      "summary": "壳识别、OEP、IAT、dump 修复和虚拟化保护特征。",
+      "tags": ["UPX", "VMP", "OEP", "IAT"]
+    },
+    {
+      "id": "windows-api",
+      "title": "Windows API 与反调试常见模式",
+      "category": "平台专题",
+      "file": "06-windows-api.md",
+      "summary": "进程、内存、文件、注册表、TLS、SEH 和反调试 API。",
+      "tags": ["Windows", "API", "anti-debug"]
+    },
+    {
+      "id": "linux-elf",
+      "title": "Linux ELF 与 native pwn/rev 交叉点",
+      "category": "平台专题",
+      "file": "07-linux-elf.md",
+      "summary": "ELF 加载、PLT/GOT、动态链接、gdb 和常见保护。",
+      "tags": ["ELF", "GOT", "PLT", "gdb"]
+    },
+    {
+      "id": "managed-mobile",
+      "title": ".NET / Java / Android 逆向",
+      "category": "平台专题",
+      "file": "08-managed-mobile.md",
+      "summary": "IL、JVM、DEX、smali、JNI 和移动端运行时观察。",
+      "tags": [".NET", "Java", "Android", "JNI"]
+    },
+    {
+      "id": "obfuscation-crypto",
+      "title": "混淆、编码与小型密码题",
+      "category": "算法与混淆",
+      "file": "09-obfuscation-crypto.md",
+      "summary": "变换链恢复、常见编码、约束求解和脚本复现。",
+      "tags": ["obfuscation", "crypto", "z3"]
+    },
+    {
+      "id": "final-checklist",
+      "title": "赛场速查清单",
+      "category": "速查清单",
+      "file": "10-final-checklist.md",
+      "summary": "逆向题定位、验证和提交前的快速检查。",
+      "tags": ["checklist", "CTF", "flag"]
+    }
+  ]
+}

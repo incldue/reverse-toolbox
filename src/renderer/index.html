@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: file:; frame-src 'self' file: data: about:; object-src 'none';">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Reverse Toolbox</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">RT</div>
+          <div>
+            <div class="brand-title">Reverse Toolbox</div>
+            <div class="brand-subtitle">CTF 逆向工作台</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <button class="nav-item active" data-view="tools">工具启动</button>
+          <button class="nav-item" data-view="knowledge">知识库</button>
+          <button class="nav-item" data-view="settings">路径设置</button>
+        </nav>
+
+        <div class="side-panel">
+          <div class="side-label">当前样本</div>
+          <div id="targetFile" class="target-file">未选择</div>
+          <button id="pickTargetBtn" class="ghost-button full">选择样本</button>
+          <button id="clearTargetBtn" class="ghost-button full">清空样本</button>
+        </div>
+
+        <div class="status-line" id="statusLine">Ready</div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="top-title">
+            <h1 id="viewTitle">工具启动</h1>
+            <p id="viewSubtitle">快速定位并启动常用 CTF 逆向工具。</p>
+          </div>
+          <div class="window-controls" aria-label="窗口控制">
+            <button class="window-dot minimize" type="button" title="最小化"></button>
+            <button class="window-dot close" type="button" title="关闭"></button>
+          </div>
+          <div class="search-box">
+            <input id="globalSearch" type="search" placeholder="搜索工具、标签或知识点">
+          </div>
+        </header>
+
+        <section id="toolsView" class="view active">
+          <div class="toolbar">
+            <div id="categoryChips" class="chips"></div>
+            <button id="refreshToolsBtn" class="secondary-button">刷新状态</button>
+          </div>
+          <div class="summary-grid">
+            <div class="summary-card">
+              <span class="summary-value" id="toolTotal">0</span>
+              <span class="summary-label">工具</span>
+            </div>
+            <div class="summary-card">
+              <span class="summary-value ready" id="toolReady">0</span>
+              <span class="summary-label">可启动</span>
+            </div>
+            <div class="summary-card">
+              <span class="summary-value missing" id="toolMissing">0</span>
+              <span class="summary-label">待配置</span>
+            </div>
+          </div>
+          <div id="toolGrid" class="tool-grid"></div>
+        </section>
+
+        <section id="knowledgeView" class="view">
+          <div class="knowledge-layout">
+            <aside class="doc-sidebar">
+              <input id="knowledgeSearch" class="doc-search" type="search" placeholder="搜索知识库">
+              <div class="doc-actions">
+                <button id="newDocBtn" class="mini-button">新建 MD</button>
+                <button id="importDocBtn" class="mini-button">导入文档</button>
+              </div>
+              <div id="docList" class="doc-list"></div>
+            </aside>
+            <article class="reader">
+              <div class="reader-header">
+                <div>
+                  <div id="readerMeta" class="reader-meta">Knowledge Base</div>
+                  <h2 id="readerTitle">选择一篇文档</h2>
+                </div>
+                <div class="reader-tools">
+                  <div id="readerToc" class="reader-toc"></div>
+                  <div class="reader-actions">
+                    <button id="editDocBtn" class="mini-button">编辑</button>
+                    <button id="saveDocBtn" class="mini-button hidden">保存</button>
+                    <button id="cancelEditBtn" class="mini-button hidden">取消</button>
+                    <button id="openDocFileBtn" class="mini-button">打开文件</button>
+                    <button id="deleteDocBtn" class="mini-button danger hidden">删除</button>
+                  </div>
+                </div>
+              </div>
+              <div id="readerBody" class="reader-body empty-reader">
+                从左侧选择文档，或使用顶部搜索定位知识点。
+              </div>
+              <textarea id="editorArea" class="editor-area hidden" spellcheck="false"></textarea>
+            </article>
+          </div>
+        </section>
+
+        <section id="settingsView" class="view">
+          <div class="settings-head">
+            <div>
+              <h2>工具路径设置</h2>
+              <p>配置本机已安装工具的可执行文件路径。保存后工具卡片会重新检测状态。</p>
+            </div>
+            <div class="settings-actions">
+              <button id="scanPathsBtn" class="secondary-button">自动扫描路径</button>
+              <button id="addCustomToolBtn" class="secondary-button">导入自定义工具</button>
+              <button id="openDataFolderBtn" class="secondary-button">打开数据目录</button>
+              <button id="saveSettingsBtn" class="primary-button">保存配置</button>
+            </div>
+          </div>
+          <div id="customToolPanel" class="custom-tool-panel">
+            <div>
+              <h3>导入自定义工具</h3>
+              <p>选择本地工具，填写名称和启动方式后加入工具箱。</p>
+            </div>
+            <div class="custom-tool-form">
+              <input id="customToolName" type="text" placeholder="工具名称，例如 My Unpacker">
+              <div class="path-picker">
+                <input id="customToolPath" type="text" placeholder="工具路径，例如 C:\Tools\tool.exe">
+                <button id="browseCustomToolBtn" class="mini-button">浏览</button>
+              </div>
+              <select id="customToolType" class="select-input">
+                <option value="gui">GUI 工具</option>
+                <option value="cli">CLI 命令行工具</option>
+              </select>
+              <label class="check-row">
+                <input id="customToolAcceptsTarget" type="checkbox" checked>
+                <span>支持带样本文件作为参数启动</span>
+              </label>
+              <input id="customToolArgs" type="text" placeholder="默认参数，支持 {file}，例如 -d {file}">
+              <button id="addCustomToolFromFormBtn" class="primary-button">加入工具箱</button>
+            </div>
+          </div>
+          <div id="settingsList" class="settings-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
